@@ -3,7 +3,7 @@ function loadFixedExt() {
   fetch("/api/fixed")
     .then((res) => res.json())
     .then((data) => {
-      const box = document.getElementById("fixed-ext");
+      const box = document.getElementById("extFixed");
       box.innerHTML = "";
 
       data.forEach((item) => {
@@ -45,6 +45,15 @@ function loadExtensions() {
       const ul = document.getElementById("extList");
       ul.innerHTML = "";
 
+      const countText = `${data.length} / 200`;
+      document.getElementById("extCount").textContent = countText;
+
+      ul.style.display = "flex";
+      ul.style.flexWrap = "wrap";
+      ul.style.gap = "10px";
+      ul.style.listStyle = "none";
+      ul.style.padding = "0";
+
       data.forEach((item) => {
         const li = document.createElement("li");
         li.textContent = item.ext + " ";
@@ -62,6 +71,7 @@ function loadExtensions() {
       console.error("목록 로드 실패:", err);
     });
 }
+
 
 // 커스텀 확장자 추가
 function addExt() {

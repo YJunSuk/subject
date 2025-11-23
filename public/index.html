@@ -1,17 +1,64 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <title>파일 확장자 차단 시스템</title>
+  <style>
+    #extBox {
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 8px;
+      width: 500px;
+      background: #fafafa;
+    }
+
+    #extList {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+      padding: 0;
+    }
+
+    #extList li {
+      background: #f2f2f2;
+      padding: 6px 10px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+    }
+
+    #extList li button {
+      margin-left: 6px;
+      cursor: pointer;
+    }
+
+    #extCount {
+      margin-bottom: 5px;
+      margin-top:0;
+    }
+    #extFixed {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+      padding: 0;
+    }
+  </style>
 </head>
+
 <body>
-  <h2>고정 확장자 차단</h2>
-  <div id="fixed-ext"></div>
+  <h2 style="margin: 5px;">고정 확장자 차단</h2>
+  <div id="extFixed"></div>
   <hr>
-  <h2>커스텀 확장자</h2>
+  <h2 style="margin: 5px;">커스텀 확장자</h2>
   <input id="extInput" placeholder="확장자 입력 (예: zip)">
-  <button id="addBtn">추가</button>
-  <ul id="extList"></ul>
+  <button id="addBtn" style="margin-bottom: 5px;">추가</button>
+  <div id="extBox">
+    <p id="extCount">0 / 200</p>
+    <ul id="extList"></ul>
+  </div>
   <hr>
   <h2>파일 업로드 테스트</h2>
   <input type="file" id="fileInput">
@@ -19,4 +66,5 @@
   <p id="result"></p>
   <script src="script.js"></script>
 </body>
+
 </html>
